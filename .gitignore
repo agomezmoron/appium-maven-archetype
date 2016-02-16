@@ -1,3 +1,7 @@
 /target/
 .project
 test-output
+bin
+.project
+.classpath
+.settings
