@@ -1,0 +1,157 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.agomezmoron</groupId>
+	<artifactId>appium-test-project</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Appium test project</name>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>https://opensource.org/licenses/MIT</url>
+			<distribution>manual</distribution>
+		</license>
+	</licenses>
+
+	<prerequisites>
+		<maven>3.1.1</maven>
+	</prerequisites>
+
+	<repositories>
+		<repository>
+			<id>appium-handler</id>
+			<name>AppiumHandler library built by agomezmoron</name>
+			<url>https://raw.github.com/agomezmoron/appium-handler/mvn-repo</url>
+		</repository>
+	</repositories>
+
+	<scm>
+		<url>https://github.com/agomezmoron/appium-maven-archetype.git</url>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>Alejandro</id>
+			<name>Alejandro Gomez</name>
+			<email>agommor@gmail.com</email>
+			<organization>Emergya</organization>
+		</developer>
+	</developers>
+
+	<!-- Project properties -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<appium-java-handler-client.version>0.0.1</appium-java-handler-client.version>
+		<testng.version>6.8.8</testng.version>
+		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+		<maven-assembly-plugin.vesion>2.5.4</maven-assembly-plugin.vesion>
+		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+		<commons-lang3.version>3.0</commons-lang3.version>
+
+		<!-- Parameters for test executions -->
+		<phonePlatform>android</phonePlatform>
+		<!-- Parameters for appium -->
+		<appium.location>http://127.0.0.1:4723/wd/hub</appium.location>
+		<appium.device>SamsungGalaxyS5</appium.device>
+		<appium.app.name>app.apk</appium.app.name>
+		<appium.app.hybrid>true</appium.app.hybrid>
+		<!-- TestNG options -->
+		<testNG.suite>src/test/resources/suites/acceptance.xml</testNG.suite>
+	</properties>
+
+
+	<dependencies>
+		<!-- Test engine -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+		</dependency>
+		<!-- Appium handler -->
+		<dependency>
+			<groupId>com.agomezmoron</groupId>
+			<artifactId>appium-handler</artifactId>
+			<version>${appium-java-handler-client.version}</version>
+		</dependency>
+		<!-- Apache commons -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+	</dependencies>
+
+	<!-- Profiles -->
+	<profiles>
+		<!-- OS platforms -->
+		<profile>
+			<id>android</id>
+			<properties>
+				<phonePlatform>android</phonePlatform>
+				<appium.app.name>app.apk</appium.app.name>
+			</properties>
+		</profile>
+		<profile>
+			<id>ios</id>
+			<properties>
+				<phonePlatform>ios</phonePlatform>
+				<appium.app.name>app.ipa</appium.app.name>
+			</properties>
+		</profile>
+		<!-- TestNG -->
+		<profile>
+			<id>acceptance-suite</id>
+			<properties>
+				<testNG.suite>src/test/resources/suites/acceptance.xml</testNG.suite>
+			</properties>
+		</profile>
+	</profiles>
+
+	<!-- Build phase -->
+	<build>
+		<!-- Filtering resources -->
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+
+		<plugins>
+			<!-- Surefire plugin to define suites xml files -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.12</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>src/test/resources/suites/acceptance.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven-jar-plugin.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
