@@ -37,6 +37,12 @@
 			<email>agommor@gmail.com</email>
 			<organization>Emergya</organization>
 		</developer>
+		<developer>
+			<id>Ivan</id>
+			<name>Ivan Gomez de Leon</name>
+			<email>igomez@emergya.com</email>
+			<organization>Emergya</organization>
+		</developer>
 	</developers>
 
 	<!-- Project properties -->
