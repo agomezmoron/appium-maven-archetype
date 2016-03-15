@@ -27,9 +27,9 @@ The archetype consist of several important parts, everything has been mounted on
 
 ###### In the src/test/java:
 
-1. Page objects
-2. Tests
-3. utils
+1. Page objects: As Selenium, here we have every PageObject, also the BasePage.java, and this BasePage has important functions as we will see in
+2. Tests:
+3. utils:
 
 ### Items selectors
 TODO
