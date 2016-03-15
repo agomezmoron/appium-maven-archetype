@@ -21,9 +21,9 @@ The archetype consist of several important parts.
 
 ###### In the src/test/resources:
 
-1. Selectors
-2. Suites
-3. .properties
+1. Selectors:
+2. Suites:
+3. _properties_
 
 ###### In the src/test/java:
 
