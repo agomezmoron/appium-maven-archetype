@@ -12,17 +12,25 @@ The aim of this project is to provide a maven archetype for appium projets using
 TODO
 
 ### Archetype structure
-TODO: The archetype consist of several important parts.
+The archetype consist of several important parts.
+
 In the root:
-1. pom.xml
+
+1. pom.xml: ```javascript 		<repository>
+			<id>appium-handler</id>
+			<name>AppiumHandler library built by agomezmoron</name>
+			<url>https://raw.github.com/agomezmoron/appium-handler/mvn-repo</url>
+		</repository>```
 2. downloadApp.sh
 
 In the src/test/resources:
+
 1. Selectors
 2. Suites
 3. .properties
 
 In the src/test/java:
+
 1. Page objects
 2. Tests
 3. utils
