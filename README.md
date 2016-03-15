@@ -14,12 +14,18 @@ TODO
 ### Archetype structure
 TODO: The archetype consist of several important parts.
 In the root:
-1. pom.xm
-2. 
-
-In the src/test:
 1. pom.xml
-2. 
+2. downloadApp.sh
+
+In the src/test/resources:
+1. Selectors
+2. Suites
+3. .properties
+
+In the src/test/java:
+1. Page objects
+2. Tests
+3. utils
 
 ### Items selectors
 TODO
