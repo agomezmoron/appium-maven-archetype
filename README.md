@@ -27,9 +27,9 @@ The archetype consist of several important parts, everything has been mounted on
 
 ###### In the src/test/java:
 
-1. Page objects: As Selenium, here we have every PageObject, also the BasePage.java, and this BasePage has important functions as we will see in
-2. Tests:
-3. utils:
+1. Page objects: As Selenium, here we have every PageObject, also the BasePage.java, and this BasePage has important functions as we will see in [Native & Hybrid applications support](/README.md#native--hybrid-applications-support).
+2. Tests: We store the tests here too. Some _@before_ and _@after_ are defined here, also the abstract method checkLayout().
+3. utils: We can found here PropertiesHandler.java wich interacts with the AppiumHandler; the UserFactory.java to retrieve a UserTest instance depending on the provided domain; and UserTest.java represents a user to the session in course.
 
 ### Items selectors
 TODO
