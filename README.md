@@ -14,21 +14,18 @@ TODO
 ### Archetype structure
 The archetype consist of several important parts.
 
-#### In the root:
+###### In the root:
 
-1. pom.xml:
+1. pom.xml: We have defined repositories for AppiumHandler, versions of plugins and technologies, properties of Phonegap and Appium, dependencies, profiles, and all the config for the Build phase.
+2. downloadApp.sh: this script is executed before the project to download and install the app in the device/emulator.
 
-We have defined repositories for AppiumHandler, versions of plugins and technologies, properties of Phonegap and Appium, dependencies, profiles, and all the config for the Build phase.
-
-2. downloadApp.sh
-
-#### In the src/test/resources:
+###### In the src/test/resources:
 
 1. Selectors
 2. Suites
 3. .properties
 
-#### In the src/test/java:
+###### In the src/test/java:
 
 1. Page objects
 2. Tests
