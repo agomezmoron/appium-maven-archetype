@@ -16,8 +16,8 @@ The archetype consist of several important parts, everything has been mounted on
 
 ###### In the root:
 
-1. pom.xml: We have defined repositories for AppiumHandler, versions of plugins and technologies, properties of Phonegap and Appium, dependencies, profiles, and all the config for the Build phase.
-2. downloadApp.sh: this script is executed before the project to download and install the app in the device/emulator.
+1. _pom.xml_: We have defined repositories for AppiumHandler, versions of plugins and technologies, properties of Phonegap and Appium, dependencies, profiles, and all the config for the Build phase.
+2. _downloadApp.sh_: this script is executed before the project to download and install the app in the device/emulator.
 
 ###### In the src/test/resources:
 
@@ -27,15 +27,16 @@ The archetype consist of several important parts, everything has been mounted on
 
 ###### In the src/test/java:
 
-1. Page objects: As Selenium, here we have every PageObject, also the BasePage.java, and this BasePage has important functions as we will see in [Native & Hybrid applications support](/README.md#native--hybrid-applications-support).
+1. PageObject: As Selenium, here we have every PageObject, also the BasePage.java, and this BasePage has important functions as we will see in [Native & Hybrid applications support](/README.md#native--hybrid-applications-support).
 2. Tests: We store the tests here too. Some _@before_ and _@after_ are defined here, also the abstract method checkLayout().
-3. utils: We can found here PropertiesHandler.java wich interacts with the AppiumHandler; the UserFactory.java to retrieve a UserTest instance depending on the provided domain; and UserTest.java represents a user to the session in course.
+3. Utils: We can found here PropertiesHandler.java wich interacts with the AppiumHandler; the UserFactory.java to retrieve a UserTest instance depending on the provided domain; and UserTest.java represents a user to the session in course.
 
 ### Items selectors
 TODO
 
 ### Native & Hybrid applications support
-TODO
+In theory this archetype should works in Android and IOs, also in Native & Hybrid apps.
+But there is an important issue with Hybrid technologies. We have verified that the actions defined in Appium framework, such as: longTap(), swipe(), etc; Are NOT working Hybrid apps (Ionic for example). So we are defining some kinds of alternative functions using JavaScript, to emulate the necessary actions.
 
 ### Basic profiles
 TODO
