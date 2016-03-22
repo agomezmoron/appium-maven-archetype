@@ -33,7 +33,8 @@ The archetype consist of several important parts, everything has been mounted on
 
 ### Items selectors
 As we explained [here] (/README.md#in-the-srctestresources), the selectors are _.properties_ files used to save the way to locate elements of the page (ID's, Xpath, etc). To make it work the _.properties_ file should have exactly the same name of the PageObject refered with the next changes: the _.properties_ file name should go in lowercase and without the suffix _Page_.
-> Example:  _LoginPage.java_ --> _login.properties_
+> Example:  
+_LoginPage.java_ --> _login.properties_
 >
 
 ### Native & Hybrid applications support
