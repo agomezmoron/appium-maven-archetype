@@ -44,15 +44,18 @@ But there is an important issue with Hybrid technologies. We have verified that 
 ### Basic profiles
 As we explained [here] (/README.md#in-the-root), one of the _pom.xml_ content is the profiles. Two of them are about the OS on which the tests are run (Android and IOs).
 > Important:  
-To run the test is absolutely necessary two conditions:  
-1. The emulator should be running.
+To run the test are absolutely necessary two conditions:  
+1. The emulator should be running.  
 2. Appium should be running.
 >
 
-		<!-- TestNG -->
+The other profile is about the suite of tests to launch:
+```
+<!-- TestNG -->
 		<profile>
 			<id>acceptance-suite</id>
 			<properties>
 				<testNG.suite>src/test/resources/suites/acceptance.xml</testNG.suite>
 			</properties>
 		</profile>
+```
