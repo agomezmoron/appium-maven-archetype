@@ -42,7 +42,7 @@ In theory this archetype should works in Android and IOs, also in Native & Hybri
 But there is an important issue with Hybrid technologies. We have verified that the actions defined in Appium framework, such as: longTap(), swipe(), etc; Are NOT working Hybrid apps (Ionic for example). So we are defining some kinds of alternative functions using JavaScript, to emulate the necessary actions.
 
 ### Basic profiles
-As we explained [here] (/README.md#in-the-root), one of the _pom.xml_ content is the profiles. Two of them are about the OS on which the tests are run (Android and IOs).
+As we explained [here] (/README.md#in-the-root), one of the _pom.xml_ content is the profiles. Two of them are about the OS on which the tests are run (depends of the [emulator](/Documentation/prerequisites/emulatorsInstallation.md)), Android uses, for example, a _.apk_ and IOs uses _.ipa_.
 > Important:  
 To run the test are absolutely necessary two conditions:  
 1. The emulator should be running.  
