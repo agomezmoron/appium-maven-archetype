@@ -51,11 +51,10 @@ To run the test are absolutely necessary two conditions:
 
 The other profile is about the suite of tests to launch:
 ```
-<!-- TestNG -->
-		<profile>
-			<id>acceptance-suite</id>
-			<properties>
-				<testNG.suite>src/test/resources/suites/acceptance.xml</testNG.suite>
-			</properties>
-		</profile>
+<profile>
+	<id>acceptance-suite</id>
+	<properties>
+		<testNG.suite>src/test/resources/suites/acceptance.xml</testNG.suite>
+	</properties>
+</profile>
 ```
