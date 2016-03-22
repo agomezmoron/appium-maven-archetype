@@ -12,7 +12,7 @@ The aim of this project is to provide a maven archetype for appium projets using
 TODO
 
 ### Archetype structure
-The archetype consist of several important parts, everything has been mounted on the structure of a Maven project.
+The archetype consist of several important parts, everything has been mounted on the structure of a [Maven](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html) project.
 
 ###### In the root:
 
@@ -27,7 +27,7 @@ The archetype consist of several important parts, everything has been mounted on
 
 ###### In the src/test/java:
 
-1. PageObject: As Selenium, here we have every PageObject, also the BasePage.java, and this BasePage has important functions as we will see in [Native & Hybrid applications support](/README.md#native--hybrid-applications-support).
+1. PageObject: As [Selenium](https://redmine.emergya.es/projects/qa/wiki/Proyecto_Selenium), here we have every PageObject, also the BasePage.java, and this BasePage has important functions as we will see in [Native & Hybrid applications support](/README.md#native--hybrid-applications-support).
 2. Tests: We store the tests here too. Some _@before_ and _@after_ are defined here, also the abstract method checkLayout().
 3. Utils: We can found here PropertiesHandler.java wich interacts with the AppiumHandler; the UserFactory.java to retrieve a UserTest instance depending on the provided domain; and UserTest.java represents a user to the session in course.
 
@@ -39,17 +39,33 @@ _LoginPage.java_ --> _login.properties_
 
 ### Native & Hybrid applications support
 In theory this archetype should works in Android and IOs, also in Native & Hybrid apps.
-But there is an important issue with Hybrid technologies. We have verified that the actions defined in Appium framework, such as: longTap(), swipe(), etc; Are NOT working Hybrid apps (Ionic for example). So we are defining some kinds of alternative functions using JavaScript, to emulate the necessary actions.
+But there is an important issue with Hybrid technologies. We have verified that the actions defined in Appium framework, such as: longTap(), swipe(), etc; Are NOT working Hybrid apps (Ionic for example). So we are defining, in BasePage, some kinds of alternative functions using JavaScript, to emulate the necessary actions.
 
 ### Basic profiles
 As we explained [here] (/README.md#in-the-root), one of the _pom.xml_ content is the profiles. Two of them are about the OS on which the tests are run (depends of the [emulator](/Documentation/prerequisites/emulatorsInstallation.md)), Android uses, for example, an _.apk_ file to install the app, and IOs uses _.ipa_.
+```
+	<profile>
+		<id>android</id>
+		<properties>
+			<phonePlatform>android</phonePlatform>
+			<appium.app.name>app.apk</appium.app.name>
+		</properties>
+	</profile>
+	<profile>
+		<id>ios</id>
+		<properties>
+			<phonePlatform>ios</phonePlatform>
+			<appium.app.name>app.ipa</appium.app.name>
+		</properties>
+	</profile>
+```
 > Important:  
 To run the test are absolutely necessary two conditions:  
 1. The emulator should be running.  
 2. Appium should be running.
 >
 
-The other profile is about the suite of tests to launch:
+The other profile is about the [TestNG](http://testng.org/doc/documentation-main.html) suites, as set of tests to launch:
 ```
 <profile>
 	<id>acceptance-suite</id>
