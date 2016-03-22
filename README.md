@@ -16,7 +16,7 @@ The archetype consist of several important parts, everything has been mounted on
 
 ###### In the root:
 
-1. _pom.xml_: We have defined repositories for AppiumHandler, versions of plugins and technologies, properties of Phonegap and Appium, dependencies, profiles, and all the config for the Build phase.
+1. _pom.xml_: We have defined repositories for AppiumHandler, versions of plugins and technologies, properties of Phonegap and Appium, dependencies, profiles (explained [here](/README.md#basic-profiles)), and all the config for the Build phase.
 2. _downloadApp.sh_: this script is executed before the project to download and install the app in the device/emulator.
 
 ###### In the src/test/resources:
@@ -42,4 +42,17 @@ In theory this archetype should works in Android and IOs, also in Native & Hybri
 But there is an important issue with Hybrid technologies. We have verified that the actions defined in Appium framework, such as: longTap(), swipe(), etc; Are NOT working Hybrid apps (Ionic for example). So we are defining some kinds of alternative functions using JavaScript, to emulate the necessary actions.
 
 ### Basic profiles
-TODO
+As we explained [here] (/README.md#in-the-root), one of the _pom.xml_ content is the profiles. Two of them are about the OS on which the tests are run (Android and IOs).
+> Important:  
+To run the test is absolutely necessary two conditions:  
+1. The emulator should be running.
+2. Appium should be running.
+>
+
+		<!-- TestNG -->
+		<profile>
+			<id>acceptance-suite</id>
+			<properties>
+				<testNG.suite>src/test/resources/suites/acceptance.xml</testNG.suite>
+			</properties>
+		</profile>
