@@ -1,6 +1,6 @@
 # Apache Maven 3 installation
 
-Depending on your Linux distribution you have to install Maven 3 in two ways:
+Depending on your Linux distribution you can install Maven 3 in two ways:
 
 ###### Debian/Ubuntu
 ```
