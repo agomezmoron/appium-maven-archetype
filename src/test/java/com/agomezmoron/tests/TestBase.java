@@ -42,7 +42,7 @@ import com.agomezmoron.appiumhandler.AppiumHandledDriver;
 import com.agomezmoron.utils.PropertiesHandler;
 
 /**
- * Main class for all the defined Tests. Responsible for setting up the Appium test Driver
+ * Main class for all the defined Tests. Responsible for setting up the Appium test Driver.
  * 
  * @author Alejandro Gomez <agommor@gmail.com>
  * @author Ivan Gomez <igomez@emergya.com>
@@ -73,8 +73,7 @@ public abstract class TestBase {
      */
     @BeforeSuite
     public void setUpAppium() throws MalformedURLException {
-        // ChromedriverHandler.chromeDriverHandlerThread().start();
-        // load the file we'll use
+        // Load the file we'll use
         PropertiesHandler.getInstance().load("test.properties");
 
         final String URL_STRING = PropertiesHandler.getInstance().get("test.appiumLocation");
@@ -83,7 +82,7 @@ public abstract class TestBase {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", PropertiesHandler.getInstance().get("test.platform"));
-        // device name is not mandatory for cloud executions
+        // Device name is not mandatory for cloud executions.
         if (StringUtils.isNotBlank(PropertiesHandler.getInstance().get("test.deviceName"))) {
             capabilities.setCapability("deviceName", PropertiesHandler.getInstance().get("test.deviceName"));
         }
@@ -92,15 +91,15 @@ public abstract class TestBase {
         capabilities.setCapability("appHybrid", Boolean
                 .parseBoolean(PropertiesHandler.getInstance().get("test.app.hybrid")));
 
-        // checking if chromedriver is installed correctly
+        // Checking if chromedriver is installed correctly.
         File file = new File("/usr/local/bin/chromedriver");
         if (file.exists()) {
             capabilities.setCapability("chromedriverExecutable", "/usr/local/bin/chromedriver");
         }
-        // Use a empty DesiredCapabilities object
+        // Use a empty DesiredCapabilities object.
         driver = AppiumHandledDriver.buildInstance(url, capabilities);
 
-        // if the driver is not
+        // If the driver is not ready.
         assertTrue("The driver is nos ready to test!", driver.isDriverReadyToTest());
     }
 
@@ -111,7 +110,7 @@ public abstract class TestBase {
     public abstract void setUpPage();
 
     /**
-     * Restart the app after every test class to go back to the main screen and to reset the behavior
+     * Restart the app after every test class to go back to the main screen and to reset the behavior.
      */
     @AfterTest
     public void restartApp() {
@@ -119,7 +118,7 @@ public abstract class TestBase {
     }
 
     /**
-     * Always remember to quit
+     * Always remember to quit.
      */
     @AfterSuite
     public void tearDownAppium() {
@@ -127,10 +126,10 @@ public abstract class TestBase {
     }
 
     /**
-     * Sleep the driver to leave time to charge the app
+     * Sleep the driver to leave time to charge the app.
      */
     public void waitForApp() {
-        // This is needed because the app is not fully loaded after a restart
+        // This is needed because the app is not fully loaded after a restart.
         driver.sleep(5);
     }
 

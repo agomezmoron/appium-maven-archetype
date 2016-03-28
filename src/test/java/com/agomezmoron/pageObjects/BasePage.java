@@ -63,7 +63,7 @@ public abstract class BasePage {
     /**
      * Common prefix for selectors.
      */
-    private static final String SELECTOR_PREFIX = "sam";
+    private static final String SELECTOR_PREFIX = "sam"; // Prefix used to concatenate the ID of the elements.
 
     /**
      * A base constructor that sets the page's driver. The page structure is being used within this test in order to
@@ -104,11 +104,11 @@ public abstract class BasePage {
         MobileElement element = null;
         PropertiesHandler handler = PropertiesHandler.getInstance();
         handler.load(this.getSelectorsFilePath());
-        String type = handler.get(key + ".type"); // Could be null
-        String name = handler.get(key + ".name"); // getElementByIdJustId
+        String type = handler.get(key + ".type"); // Could be null if the ID is from external pages.
+        String name = handler.get(key + ".name");
 
         if (type == null && StringUtils.isNotBlank(name)) {
-            element = this.getElementByIdJustId(name);
+            element = this.getElementByIdJustId(name); // For external ID's.
         } else {
             if (StringUtils.isNotBlank(type) && StringUtils.isNotBlank(name)) {
                 element = this.getElementById(type, name);
@@ -154,7 +154,7 @@ public abstract class BasePage {
         String xpath = handler.get(key + ".xpath");
 
         if (StringUtils.isNotBlank(xpath)) {
-            element = this.driver.findElementsByXPath(xpath).get(0);
+            element = this.driver.findElementsByXPath(xpath).get(0); // Take the first or unique one.
         } else {
             LOGGER.error("Trying to retrieve from " + this.getSelectorsFilePath() + " file the item with the key " + key
                     + " but " + key + ".xpath is missing!");
@@ -163,7 +163,7 @@ public abstract class BasePage {
     }
 
     /**
-     * This method interacts with appium to retrieve the list of needed element. By xpath
+     * This method interacts with appium to retrieve the list of needed elements. By xpath
      * 
      * @param key of the items to be selected. In the related selector file should exists an entry with: key.xpath
      * @return a List of the selected {@link MobileElement} object.
