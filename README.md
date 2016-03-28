@@ -4,7 +4,7 @@ The aim of this project is to provide a maven archetype for appium projets using
 ## Prerequisites
 1. [Appium installation and configuration](/Documentation/prerequisites/appiumInstall.md)
 2. [Maven 3 configuration](/Documentation/prerequisites/maven3Installation.md)
-3. [Java 8 installation](/Documentation/prerequisites/jave8Installation.md)
+3. [Java 8 installation](/Documentation/prerequisites/java8Installation.md)
 4. [Emulators](/Documentation/prerequisites/emulatorsInstallation.md)
 
 
