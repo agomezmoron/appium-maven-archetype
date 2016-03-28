@@ -9,7 +9,13 @@ The aim of this project is to provide a maven archetype for appium projets using
 
 
 ## How to use the archetype
-TODO
+Firstly, you have to clone the repository to get the project structure.
+
+Secondly, change in the _pom.xml_ the project groupId, artifactId, name and version for the values you need.
+
+Finally, enjoy coding!
+
+_Do not remove the default developers who made this project real._
 
 ### Archetype structure
 The archetype consist of several important parts, everything has been mounted on the structure of a [Maven](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html) project.
