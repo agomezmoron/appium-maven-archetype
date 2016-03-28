@@ -14,7 +14,7 @@ TODO
 ### Archetype structure
 The archetype consist of several important parts, everything has been mounted on the structure of a [Maven](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html) project.
 
-###### In the root:
+###### In the core:
 
 1. _pom.xml_: We have defined repositories for AppiumHandler, versions of plugins and technologies, properties of Phonegap and Appium, dependencies, profiles (explained [here](/README.md#basic-profiles)), and all the config for the Build phase.
 2. _downloadApp.sh_: this script is executed before the project to download and install the app in the device/emulator.
@@ -42,7 +42,7 @@ In theory this archetype should works in Android and IOs, also in Native & Hybri
 But there is an important issue with Hybrid technologies. We have verified that the actions defined in Appium framework, such as: longTap(), swipe(), etc; Are NOT working Hybrid apps (Ionic for example). So we are defining, in BasePage, some kinds of alternative functions using JavaScript, to emulate the necessary actions.
 
 ### Basic profiles
-As we explained [here] (/README.md#in-the-root), one of the _pom.xml_ content is the profiles. Two of them are about the OS on which the tests are run (depends of the [emulator](/Documentation/prerequisites/emulatorsInstallation.md)), Android uses, for example, an _.apk_ file to install the app, and IOs uses _.ipa_.
+As we explained [here] (/README.md#in-the-core), one of the _pom.xml_ content is the profiles. Two of them are about the OS on which the tests are run (depends of the [emulator](/Documentation/prerequisites/emulatorsInstallation.md)), Android uses, for example, an _.apk_ file to install the app, and IOs uses _.ipa_.
 ```
 	<profile>
 		<id>android</id>
