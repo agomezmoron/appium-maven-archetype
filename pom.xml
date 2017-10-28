@@ -57,16 +57,19 @@
 		<commons-lang3.version>3.0</commons-lang3.version>
 		<allure.version>1.5.0.RC2</allure.version>
 		<aspectj.version>1.8.9</aspectj.version>
+		<log4j2.version>2.9.0</log4j2.version>
 
 		<!-- Parameters for test executions -->
-		<phonePlatform>android</phonePlatform>
+		<phonePlatform>ios</phonePlatform>
 		<!-- Parameters for appium -->
 		<appium.location>http://127.0.0.1:4723/wd/hub</appium.location>
-		<appium.device>SamsungGalaxyS5</appium.device>
-		<appium.app.name>app.apk</appium.app.name>
-		<appium.app.hybrid>true</appium.app.hybrid>
+		<appium.device>iPhone 6</appium.device>
+		<appium.app.name>TestApp.ipa</appium.app.name>
+		<appium.app.hybrid>false</appium.app.hybrid>
 		<!-- TestNG options -->
 		<testNG.suite>src/test/resources/suites/acceptance.xml</testNG.suite>
+				<!-- Device iOS properties -->
+		<appium.automation.name>XCUITest</appium.automation.name>		
 	</properties>
 
 
@@ -93,6 +96,17 @@
 			<groupId>ru.yandex.qatools.allure</groupId>
 			<artifactId>allure-testng-adaptor</artifactId>
 			<version>${allure.version}</version>
+		</dependency>
+		<!-- Log4j 2 commons -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j2.version}</version>
 		</dependency>
 	</dependencies>
 
