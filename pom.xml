@@ -57,7 +57,7 @@
 		<commons-lang3.version>3.0</commons-lang3.version>
 		<allure.version>1.5.0.RC2</allure.version>
 		<aspectj.version>1.8.9</aspectj.version>
-		<log4j2.version>2.13.2</log4j2.version>
+		<log4j2.version>2.13.3</log4j2.version>
 
 		<!-- Parameters for test executions -->
 		<phonePlatform>ios</phonePlatform>
