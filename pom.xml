@@ -54,7 +54,7 @@
 		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
 		<maven-assembly-plugin.vesion>2.5.4</maven-assembly-plugin.vesion>
 		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
-		<commons-lang3.version>3.0</commons-lang3.version>
+		<commons-lang3.version>3.11</commons-lang3.version>
 		<allure.version>1.5.4</allure.version>
 		<aspectj.version>1.8.9</aspectj.version>
 		<log4j2.version>2.13.2</log4j2.version>
