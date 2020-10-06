@@ -50,23 +50,26 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<appium-java-handler-client.version>0.0.3</appium-java-handler-client.version>
-		<testng.version>6.9.10</testng.version>
+		<testng.version>7.3.0</testng.version>
 		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
 		<maven-assembly-plugin.vesion>2.5.4</maven-assembly-plugin.vesion>
 		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
-		<commons-lang3.version>3.0</commons-lang3.version>
-		<allure.version>1.5.0.RC2</allure.version>
+		<commons-lang3.version>3.11</commons-lang3.version>
+		<allure.version>1.5.4</allure.version>
 		<aspectj.version>1.8.9</aspectj.version>
+		<log4j2.version>2.13.3</log4j2.version>
 
 		<!-- Parameters for test executions -->
-		<phonePlatform>android</phonePlatform>
+		<phonePlatform>ios</phonePlatform>
 		<!-- Parameters for appium -->
 		<appium.location>http://127.0.0.1:4723/wd/hub</appium.location>
-		<appium.device>SamsungGalaxyS5</appium.device>
-		<appium.app.name>app.apk</appium.app.name>
-		<appium.app.hybrid>true</appium.app.hybrid>
+		<appium.device>iPhone 6</appium.device>
+		<appium.app.name>TestApp.ipa</appium.app.name>
+		<appium.app.hybrid>false</appium.app.hybrid>
 		<!-- TestNG options -->
 		<testNG.suite>src/test/resources/suites/acceptance.xml</testNG.suite>
+				<!-- Device iOS properties -->
+		<appium.automation.name>XCUITest</appium.automation.name>		
 	</properties>
 
 
@@ -93,6 +96,17 @@
 			<groupId>ru.yandex.qatools.allure</groupId>
 			<artifactId>allure-testng-adaptor</artifactId>
 			<version>${allure.version}</version>
+		</dependency>
+		<!-- Log4j 2 commons -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j2.version}</version>
 		</dependency>
 	</dependencies>
 

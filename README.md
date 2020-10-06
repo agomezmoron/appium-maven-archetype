@@ -7,7 +7,6 @@ The aim of this project is to provide a maven archetype for appium projets using
 3. [Java 8 installation](/Documentation/prerequisites/java8Installation.md)
 4. [Emulators](/Documentation/prerequisites/emulatorsInstallation.md)
 
-
 ## How to use the archetype
 Firstly, you have to clone the repository to get the project structure.
 
@@ -80,3 +79,21 @@ The other profile is about the [TestNG](http://testng.org/doc/documentation-main
 	</properties>
 </profile>
 ```
+
+### iOS Configuration
+In order to run the test included into this project (firstiOSTest) you need to install several tools to be able to work with the iOS Simulator.
+
+XCUITest:
+To automation iOS devices with a version of iOS greater than 9.3, you need to install: https://github.com/appium/appium-xcuitest-driver
+
+And set the capability:
+
+```
+capabilities.setCapability( "automationName", "XCUITest"));
+```
+
+Also, you need to download the WebDriverAgent and follow the steps described here: https://github.com/facebook/WebDriverAgent
+
+Once is set, you can run the TestApp.ipa application included into this project. 
+Also, you can download it here: https://github.com/estefafdez/iOSTestApp
+

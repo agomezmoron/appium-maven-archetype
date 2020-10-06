@@ -31,7 +31,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
@@ -49,11 +48,6 @@ import com.agomezmoron.utils.PropertiesHandler;
  *
  */
 public abstract class TestBase {
-
-    /**
-     * Logger class initialization.
-     */
-    private static final Logger LOGGER = Logger.getLogger(TestBase.class);
 
     /**
      * Make the driver static. This allows it to be created only once and used across all of the test classes.
@@ -86,10 +80,13 @@ public abstract class TestBase {
         if (StringUtils.isNotBlank(PropertiesHandler.getInstance().get("test.deviceName"))) {
             capabilities.setCapability("deviceName", PropertiesHandler.getInstance().get("test.deviceName"));
         }
-        // By default the app should be located in the sme root folder. If it isn't, this capability should be changed.
+        // By default the app should be located in the same root folder. If it isn't, this capability should be changed.
         capabilities.setCapability("app", PropertiesHandler.getInstance().get("test.app.name"));
         capabilities.setCapability("appHybrid", Boolean
                 .parseBoolean(PropertiesHandler.getInstance().get("test.app.hybrid")));
+        
+		//iOS Only
+		capabilities.setCapability( "automationName", PropertiesHandler.getInstance().get("test.automationName"));
 
         // Checking if chromedriver is installed correctly.
         File file = new File("/usr/local/bin/chromedriver");
